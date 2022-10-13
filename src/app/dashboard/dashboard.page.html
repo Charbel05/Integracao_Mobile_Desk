@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-icon name="logo-angular"></ion-icon>
     <ion-title>
-      To-do List
+      Home
     </ion-title>
     <ion-icon slot="end" name="logo-angular"></ion-icon>
   </ion-toolbar>
@@ -40,7 +40,7 @@
     </ion-item-sliding>
   </ion-list>
  
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button color="primary">
       <ion-icon name="settings"></ion-icon>
     </ion-fab-button>
@@ -53,4 +53,27 @@
 
 </ion-content>
 
-<ion-button type="submit" (click)="authService.SignOut()" expand="block">Logout</ion-button>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="schedule">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="speakers">
+      <ion-icon name="albums-outline"></ion-icon>
+      <ion-label>Produtos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="map">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="authService.SignOut()" expand="block">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Sair</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
