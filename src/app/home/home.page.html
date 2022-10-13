@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Home-Page </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+
+        <span class="new"> Novo por aqui? </span>
+
+        <ion-button
+          [routerLink]="['/registration']"
+          expand="block"
+          color="tertiary"
+          >Cadastrar</ion-button
+        >
+        
+        <span class="already"> Ou já é usuário? </span>
+        
+        <ion-button [routerLink]="['/login']" expand="block" color="secondary"
+          >Entrar</ion-button
+        >
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
