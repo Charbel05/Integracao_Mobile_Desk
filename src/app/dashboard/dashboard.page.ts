@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../shared/authentication-service";
 import { ActionSheetController, AlertController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,7 @@ export class DashboardPage implements OnInit {
     private alertCtrl: AlertController, 
     private toastCtrl: ToastController, 
     private actionSheetCtrl: ActionSheetController,
+    public router: Router,
   ){ 
 
     let taskJson = localStorage.getItem('taskDb')
@@ -167,6 +169,14 @@ export class DashboardPage implements OnInit {
     await alert.present();
 
     //this.updateLocalStorage();
+  }
+
+  async showProdutos(){
+    this.router.navigate(['produtos']);  
+  }
+
+  async showPerfil(){
+    this.router.navigate(['perfil']);  
   }
 
   ngOnInit() {
