@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'password-reset',
     loadChildren: () => import('./password-reset/password-reset.module').then( m => m.PasswordResetPageModule)
   },
+  {
+    path: 'edit-appointment',
+    loadChildren: () => import('./edit-appointment/edit-appointment.module').then( m => m.EditAppointmentPageModule)
+  },
 
 
 ];
