@@ -35,12 +35,4 @@ export class EditAppointmentPage implements OnInit {
     console.log(this.updateBookingForm.value)
   }
 
-  updateForm() {
-    this.aptService.updateBooking(this.id, this.updateBookingForm.value)
-      .then(() => {
-        this.router.navigate(['/home']);
-      })
-      .catch(error => console.log(error));
-  }
-
 }

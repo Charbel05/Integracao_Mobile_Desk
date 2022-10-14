@@ -7,50 +7,12 @@
     <ion-icon slot="end" name="logo-angular"></ion-icon>
   </ion-toolbar>
 </ion-header>
- 
-<ion-content [fullscreen]="true">
 
-  <h1>Urgente</h1>
-  <ion-list class="animate__bounceInDown">
-    <ion-item-sliding *ngFor="let task of tasksUrgentes">
-      <ion-item (click)="openActions(task)">
-        <ion-label *ngIf="!task.done">{{task.name}}</ion-label>
-        <ion-label *ngIf="task.done" color="warning"> <del>{{task.name}}</del></ion-label>
-        <ion-icon slot="start" name="radio-button-off" *ngIf="!task.done"></ion-icon>
-        <ion-icon slot="start" name="checkmark-circle" color="warning" *ngIf="task.done"></ion-icon>
-      </ion-item>
-      <ion-item-options side="start">
-        <ion-item-option (click)="delete(task)" color="danger">Excluir</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-
-  <h1>Comum</h1>
-  <ion-list class="animate__bounceInDown">
-    <ion-item-sliding *ngFor="let task of tasks">
-      <ion-item (click)="openActions(task)">
-        <ion-label *ngIf="!task.done">{{task.name}}</ion-label>
-        <ion-label *ngIf="task.done" color="warning"> <del>{{task.name}}</del></ion-label>
-        <ion-icon slot="start" name="radio-button-off" *ngIf="!task.done"></ion-icon>
-        <ion-icon slot="start" name="checkmark-circle" color="warning" *ngIf="task.done"></ion-icon>
-      </ion-item>
-      <ion-item-options side="start">
-        <ion-item-option (click)="delete(task)" color="danger">Excluir</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
- 
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button color="primary">
-      <ion-icon name="settings"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="start">
-      <ion-fab-button (click)="showAdd()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-
+<ion-content *ngIf="authService.userData as user">
+  <ion-label>
+    <h1>Seja bem-vindo,</h1>
+    <p>{{user.displayName}}</p>
+  </ion-label>
 </ion-content>
 
 <ion-tabs>
@@ -61,12 +23,12 @@
       <ion-label>Home</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="speakers" (click)="showProdutos()">
+    <ion-tab-button (click)="showProdutos()">
       <ion-icon name="albums-outline"></ion-icon>
       <ion-label>Produtos</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="map" (click)="showPerfil()">
+    <ion-tab-button (click)="showPerfil()">
       <ion-icon name="person-outline"></ion-icon>
       <ion-label>Perfil</ion-label>
     </ion-tab-button>

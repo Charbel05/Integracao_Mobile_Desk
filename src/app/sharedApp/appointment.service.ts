@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Appointment } from '../sharedApp/Appointment';
 import {
   AngularFireDatabase,
   AngularFireList,
@@ -8,7 +7,9 @@ import {
 @Injectable({
   providedIn: 'root',
 })
+
 export class AppointmentService {
+
   bookingListRef: AngularFireList<any>;
   bookingRef: AngularFireObject<any>;
   constructor(private db: AngularFireDatabase) {}
@@ -16,24 +17,14 @@ export class AppointmentService {
   
   // Get Single
   getBooking(id: string) {
-    this.bookingRef = this.db.object('/appointment/' + id);
+    this.bookingRef = this.db.object('/students-list/' + id);
     return this.bookingRef;
   }
 
   // Get List
   getBookingList() {
-    this.bookingListRef = this.db.list('/appointment');
+    this.bookingListRef = this.db.list('/students-list');
     return this.bookingListRef;
-  }
-  
-  // Update
-  updateBooking(id, apt: Appointment) {
-    return this.bookingRef.update({
-      $key: apt.$key,
-      firstName: apt.firstName,
-      lastName: apt.lastName,
-      mobileNumber: apt.mobileNumber
-    });
   }
 
   

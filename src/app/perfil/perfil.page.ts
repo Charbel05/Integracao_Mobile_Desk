@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../shared/user';
+import { AuthenticationService } from "../shared/authentication-service";
 
 @Component({
   selector: 'app-perfil',
@@ -8,17 +10,25 @@ import { Router } from '@angular/router';
 })
 export class PerfilPage implements OnInit {
 
+  user = {} as User;
+
   constructor(
+    public authService: AuthenticationService,
     public router: Router,
   ) { }
 
-  async showHome(){
+  showHome(){
     this.router.navigate(['dashboard']);  
   }
 
-  async showPerfil(){
-    this.router.navigate(['perfil']);  
+  showProdutos(){
+    this.router.navigate(['produtos']);  
   }
+
+  changeName(){
+    console.log("OK");
+  }
+
   ngOnInit() {
   }
 

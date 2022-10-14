@@ -3,4 +3,4 @@ export interface Appointment {
     firstName: string;
     lastName: string;
     mobileNumber: Number;
- }
+}
