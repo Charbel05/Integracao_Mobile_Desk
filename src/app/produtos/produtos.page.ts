@@ -4,13 +4,15 @@ import { getStorage, ref as refS, getDownloadURL } from "firebase/storage";
 import { Appointment } from '../sharedApp/Appointment';
 import { AppointmentService } from '../sharedApp/appointment.service';
 import { AlertController } from '@ionic/angular';
+import { AuthenticationService } from "../shared/authentication-service";
 
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.page.html',
   styleUrls: ['./produtos.page.scss'],
 })
-export class ProdutosPage implements OnInit {
+
+export class ProdutosPage {
 
   lanches: any[] = [];
   p: number = 1;
@@ -19,6 +21,7 @@ export class ProdutosPage implements OnInit {
   preLoader: boolean = true;
 
   constructor(
+    public authService: AuthenticationService,
     public alertController: AlertController,
     public router: Router,
     public crudApi: AppointmentService, 
@@ -61,28 +64,13 @@ export class ProdutosPage implements OnInit {
     })
   }
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
-      buttons: ['OK'],
-    });
-
-    await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
-  }
-
-  async showProduto(produto){
+  async popUpProduto(){
 
     console.log("evento Ok")
 
     const alert = await this.alertController.create({
-      header: produto.firstName,
-      message: `${produto.lastName}<br>Valor: R$${produto.mabileNumber}`, 
+      header: 'This is an alert!',
+      message: 'This is an alert!', 
       buttons: [
         {
           text: 'CANCELAR',
@@ -93,6 +81,7 @@ export class ProdutosPage implements OnInit {
         },
       ],
     });
+
     await alert.present();
   }
 

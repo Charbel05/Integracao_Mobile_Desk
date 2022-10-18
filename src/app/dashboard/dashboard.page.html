@@ -1,17 +1,15 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-icon name="logo-angular"></ion-icon>
+  <ion-toolbar color="warning">
     <ion-title>
       Home
     </ion-title>
-    <ion-icon slot="end" name="logo-angular"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="authService.userData as user">
   <ion-label>
     <h1>Seja bem-vindo,</h1>
-    <p>{{user.displayName}}</p>
+    <p style="color: #000000">{{user.displayName}}</p>
   </ion-label>
 </ion-content>
 

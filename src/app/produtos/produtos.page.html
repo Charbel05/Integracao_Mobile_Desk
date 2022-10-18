@@ -1,11 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-title>Produtos</ion-title>
   </ion-toolbar>
-  <img src="../../assets/cardapio.jpg.jpg">
 </ion-header>
 
 <ion-content>
+
+  <img src="../../assets/cardapio.jpg.jpg">
 
   <ion-card *ngFor="let produto of lanches">
 
@@ -19,11 +20,12 @@
       </h2></ion-label>
     </ion-card-content>
 
-    <ion-text color="success"><h2 style="font-size: 15px">Valor: R${{produto.mobileNumber}}</h2></ion-text>
+    <ion-text color="success"><h2 style="font-size: 17px">  Valor: R${{produto.mobileNumber}}</h2></ion-text>
     
-    <ion-button (click)="presentAlert()">Mais</ion-button>
-  </ion-card>
+    <ion-button  (click)="popUpProduto()">Click Me</ion-button>
 
+  </ion-card>
+  
 </ion-content>
 
 <ion-tabs>
